@@ -2,9 +2,11 @@
   <nav>
     <v-toolbar app src="https://cdn.vuetifyjs.com/images/backgrounds/vbanner.jpg">
       <v-app-bar-nav-icon class="grey--text" @click="popDrawer"></v-app-bar-nav-icon>
-      <v-toolbar-title class="text-uppercase white--text">
-        <span class="font-weight-light">Todo</span>
-        <span class="font-weight-bold">List</span>
+      <v-toolbar-title class="text-uppercase">
+        <router-link to="/" class="white--text">
+          <span class="font-weight-light">Todo</span>
+          <span class="font-weight-bold">List</span>
+        </router-link>
       </v-toolbar-title>
       <v-spacer></v-spacer>
       <v-btn text dark color="white">

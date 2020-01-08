@@ -1,5 +1,0 @@
-<template>
-  <div class="about">
-    <h1>About Component</h1>
-  </div>
-</template>
