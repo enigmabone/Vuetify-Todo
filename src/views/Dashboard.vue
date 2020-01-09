@@ -98,11 +98,14 @@ export default {
 }
 .v-chip.New {
   background: #30ad4b !important;
+  border-left: none;
 }
 .v-chip.Completed {
   background: #b1b1b1 !important;
+  border-left: none;
 }
 .v-chip.In-Progress {
   background: #36ade9 !important;
+  border-left: none;
 }
 </style>
