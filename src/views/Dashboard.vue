@@ -2,6 +2,20 @@
   <div class="Dashboard">
     <h1 class="subheading grey--text">Dashboard Component</h1>
     <v-container class="my-5">
+      <v-row class="mb-3">
+        <v-btn small depressed color="grey lighten-4" @click="sortBy('title')">
+          <v-icon small left>mdi-folder</v-icon>
+          <span class="caption text-lowercase">By Project Name</span>
+        </v-btn>
+        <v-btn small depressed color="grey lighten-4" @click="sortBy('person')">
+          <v-icon small left>mdi-account-tie</v-icon>
+          <span class="caption text-lowercase">By Name</span>
+        </v-btn>
+        <v-btn small depressed color="grey lighten-4">
+          <v-icon small left>mdi-calendar</v-icon>
+          <span class="caption text-lowercase">By Due Date</span>
+        </v-btn>
+      </v-row>
       <v-card
         flat
         :class="`pa-3 mb-3 ${project.status}`"
@@ -22,8 +36,9 @@
             <div>{{ project.due }}</div>
           </v-col>
           <v-col xs="2" sm="4" md="2">
-            <div class="caption grey--text">Status</div>
-            <div>{{ project.status }}</div>
+            <div>
+              <v-chip small :class="`${project.status} white--text caption`">{{ project.status }}</v-chip>
+            </div>
           </v-col>
         </v-row>
       </v-card>
@@ -63,17 +78,31 @@ export default {
         }
       ]
     };
+  },
+  methods: {
+    sortBy(prop) {
+      this.projects.sort((a, b) => (a[prop] < b[prop] ? -1 : 1));
+    }
   }
 };
 </script>
 <style scoped lang="scss">
 .New {
-  border-left: 6px solid #b1b1b1;
+  border-left: 6px solid #30ad4b;
 }
 .Completed {
-  border-left: 6px solid #10aa32;
+  border-left: 6px solid #b1b1b1;
 }
 .In-Progress {
   border-left: 6px solid #36ade9;
+}
+.v-chip.New {
+  background: #30ad4b !important;
+}
+.v-chip.Completed {
+  background: #b1b1b1 !important;
+}
+.v-chip.In-Progress {
+  background: #36ade9 !important;
 }
 </style>
