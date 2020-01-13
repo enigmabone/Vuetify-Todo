@@ -3,18 +3,24 @@
     <h1 class="subheading grey--text">Dashboard Component</h1>
     <v-container class="my-5">
       <v-row class="mb-3">
-        <v-btn small depressed color="grey lighten-4" @click="sortBy('title')">
-          <v-icon small left>mdi-folder</v-icon>
-          <span class="caption text-lowercase">By Project Name</span>
-        </v-btn>
-        <v-btn small depressed color="grey lighten-4" @click="sortBy('person')">
-          <v-icon small left>mdi-account-tie</v-icon>
-          <span class="caption text-lowercase">By Name</span>
-        </v-btn>
-        <v-btn small depressed color="grey lighten-4">
-          <v-icon small left>mdi-calendar</v-icon>
-          <span class="caption text-lowercase">By Due Date</span>
-        </v-btn>
+        <v-tooltip top>
+          <template v-slot:activator="{ on }">
+            <v-btn small depressed color="grey lighten-4" @click="sortBy('title')" v-on="on">
+              <v-icon small left>mdi-folder</v-icon>
+              <span class="caption text-lowercase">By Project Name</span>
+            </v-btn>
+          </template>
+          <span>Sort by project title</span>
+        </v-tooltip>
+        <v-tooltip top>
+          <template v-slot:activator="{ on }">
+            <v-btn small depressed color="grey lighten-4" @click="sortBy('person')" v-on="on">
+              <v-icon small left>mdi-account-tie</v-icon>
+              <span class="caption text-lowercase">By Name</span>
+            </v-btn>
+          </template>
+          <span>Sort by person</span>
+        </v-tooltip>
       </v-row>
       <v-card
         flat
